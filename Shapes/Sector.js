@@ -5,7 +5,7 @@ import * as ART from '@react-native-community/art';
 const CIRCLE = Math.PI * 2;
 
 function makeSectorPath(x, y, angle, radius) {
-  if (angle >= CIRCLE) {
+  if (angle == 0) {
     return ART.Path()
       .moveTo(x, y)
       .move(radius, 0)
@@ -14,9 +14,9 @@ function makeSectorPath(x, y, angle, radius) {
       .close();
   }
 
-  const startAngle = Math.PI / 2 - angle;
-  const endAngle = Math.PI / 2;
-  const arcFlag = angle > Math.PI ? 1 : 0;
+  const startAngle = Math.PI / 2;
+  const endAngle = Math.PI / 2 - angle;
+  const arcFlag = angle < Math.PI ? 1 : 0;
   const centerX = x + radius;
   const centerY = y + radius;
 
